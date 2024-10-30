@@ -38,13 +38,19 @@ float multiplicacao(){
 float divisao(){
     
     float a, b;
+    int resultado;
     
     printf("Insira o dividendo : ");
     scanf("%f", &a);
     printf("Insira o divisor: ");
     scanf("%f", &b);
-    
-    return a / b;
+    if(b == 0){
+    printf("Não é possível dividir por 0");
+    return 1;
+    } else {
+    resultado = a / b;
+    printf("O resultado da divisão é: %d ", resultado);
+    }
 }
 
 double raiz(){
@@ -93,6 +99,16 @@ float bhaskara(){
     }
 }
 
+  int modolo(){
+   int a, b;
+   printf("Escolha o primeiro numero: ");
+   scanf("%d", &a);
+   printf("Escolha o segundo: ");
+   scanf("%d", &b);
+   
+   return a % b;
+}
+
 
 int main(){
     int opcao;
@@ -107,7 +123,8 @@ int main(){
         printf("\n5 - Raiz quadrada");
         printf("\n6 - Exponencial");
         printf("\n7 - Bhaskara");
-        printf("\n8 - Encerrar programa\n");
+        printf("\n8 - Modolo");
+        printf("\n9 - Encerrar programa\n");
         scanf("%d", &opcao);
         
         switch(opcao){
@@ -127,8 +144,7 @@ int main(){
             break;
             
             case 4:
-            resultado = divisao();
-            printf("O resultado da divisao é: %.2f \n ", resultado);
+            divisao();
             break;
             
             case 5:
@@ -146,6 +162,11 @@ int main(){
             break;
             
             case 8:
+            resultado = modolo();
+            printf ("O modolo (resto) é: %.2f", resultado);
+            break;
+            
+            case 9:
             return 0;
             break;
             
